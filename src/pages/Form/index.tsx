@@ -6,14 +6,14 @@ import SelectInput from '../../components/SelectInput';
 import AsyncSelect from '../../components/AsyncSelectInput';
 import api from '../../services/api';
 
-interface Repo {
-  name: string;
-  full_name: string;
-}
-
 interface ReposOptions {
   value: string;
   label: string;
+}
+
+interface Repo {
+  name: string;
+  full_name: string;
 }
 
 interface LoadOptionsCallback {
