@@ -32,9 +32,9 @@ const AsyncSelect: React.FC<Props> = ({ name, ...rest }) => {
       colors: {
         ...theme.colors,
         primary: '#666360',
-        neutral0: '#232129',
         primary25: '#666360',
         primary50: '#999591',
+        neutral0: '#232129',
         neutral80: '#F4EDE8',
         neutral30: '#FBC131',
       },
