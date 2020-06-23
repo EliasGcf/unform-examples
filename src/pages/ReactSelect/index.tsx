@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { FormHandles } from '@unform/core';
 
-import SelectInput from '../../components/SelectInput';
-import AsyncSelect from '../../components/AsyncSelectInput';
+import SelectInput from '../../components/react-select/SelectInput';
+import AsyncSelect from '../../components/react-select/AsyncSelectInput';
+import Button from '../../components/Button';
 import api from '../../services/api';
 
-import unformLogo from '../../assets/logo-unform.svg';
-
-import { Container, Content, UnForm } from './styles';
+import { UnForm } from './styles';
 
 interface ReposOptions {
   value: string;
@@ -28,11 +27,12 @@ interface SelectFormData {
   repo: string;
 }
 
-const Form: React.FC = () => {
+const ReactSelect: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const [searchOption, setSearchOption] = useState('repos');
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [repositorySelected, setRepositorySelected] = useState<string>('');
   const [reposOptions, setReposOptions] = useState<ReposOptions[]>([]);
 
   const optionsSelect = [
@@ -43,6 +43,7 @@ const Form: React.FC = () => {
   const toggleOption = useCallback(() => {
     setLoading(true);
     setSearchOption(state => (state === 'repos' ? 'starred' : 'repos'));
+    setRepositorySelected('');
     formRef.current?.clearField('repo');
   }, []);
 
@@ -54,6 +55,10 @@ const Form: React.FC = () => {
     },
     [reposOptions],
   );
+
+  const handleRepositoryChange = useCallback(data => {
+    setRepositorySelected(data.value);
+  }, []);
 
   const handleLoadPage = useCallback(async () => {
     try {
@@ -105,32 +110,25 @@ const Form: React.FC = () => {
   }, [searchOption]);
 
   return (
-    <Container>
-      <Content>
-        <img src={unformLogo} alt="Logo unForm" />
+    <UnForm ref={formRef} onSubmit={handleSubmit}>
+      <SelectInput
+        name="name"
+        defaultValue={{ value: 'repos', label: 'Owner' }}
+        onChange={toggleOption}
+        options={optionsSelect}
+      />
+      <AsyncSelect
+        name="repo"
+        isLoading={loading}
+        defaultOptions={reposOptions}
+        loadOptions={loadOptions}
+        onChange={handleRepositoryChange}
+        onMenuScrollToBottom={handleLoadPage}
+      />
 
-        <h1>Select Inputs examples with Unform</h1>
-
-        <UnForm ref={formRef} onSubmit={handleSubmit}>
-          <SelectInput
-            name="name"
-            defaultValue={{ value: 'repos', label: 'Owner' }}
-            onChange={toggleOption}
-            options={optionsSelect}
-          />
-          <AsyncSelect
-            name="repo"
-            isLoading={loading}
-            defaultOptions={reposOptions}
-            loadOptions={loadOptions}
-            onMenuScrollToBottom={handleLoadPage}
-          />
-
-          <button type="submit">Open</button>
-        </UnForm>
-      </Content>
-    </Container>
+      <Button type="submit">{`Open ${repositorySelected}`}</Button>
+    </UnForm>
   );
 };
 
-export default Form;
+export default ReactSelect;

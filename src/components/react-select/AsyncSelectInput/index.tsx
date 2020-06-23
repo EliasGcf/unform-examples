@@ -1,23 +1,20 @@
 import React, { useRef, useEffect } from 'react';
-import ReactSelect, {
-  OptionTypeBase,
-  Props as SelectProps,
-  StylesConfig,
-  Theme,
-} from 'react-select';
+import { OptionTypeBase, StylesConfig, Theme } from 'react-select';
+import Select, { Props as AsyncProps } from 'react-select/async';
 import { useField } from '@unform/core';
 
-interface Props extends SelectProps<OptionTypeBase> {
+interface Props extends AsyncProps<OptionTypeBase> {
   name: string;
 }
 
-const SelectInput: React.FC<Props> = ({ name, ...rest }) => {
+const AsyncSelect: React.FC<Props> = ({ name, ...rest }) => {
   const selectRef = useRef(null);
   const { fieldName, defaultValue, registerField } = useField(name);
 
   const colourStyles: StylesConfig = {
     control: styles => ({
       ...styles,
+      marginTop: 8,
       borderRadius: 10,
       borderColor: '#232129',
       fontSize: 18,
@@ -35,9 +32,9 @@ const SelectInput: React.FC<Props> = ({ name, ...rest }) => {
       colors: {
         ...theme.colors,
         primary: '#666360',
-        neutral0: '#232129',
         primary25: '#666360',
         primary50: '#999591',
+        neutral0: '#232129',
         neutral80: '#F4EDE8',
         neutral30: '#FBC131',
       },
@@ -48,35 +45,40 @@ const SelectInput: React.FC<Props> = ({ name, ...rest }) => {
     registerField({
       name: fieldName,
       ref: selectRef.current,
-      path: undefined,
       getValue: (ref: any) => {
         if (rest.isMulti) {
-          if (!ref.state.value) {
+          if (!ref.select.state.value) {
             return [];
           }
 
-          return ref.state.value.map((option: OptionTypeBase) => option.value);
+          return ref.select.state.value.map(
+            (option: OptionTypeBase) => option.value,
+          );
         }
-
-        if (!ref.state.value) {
+        if (!ref.select.state.value) {
           return '';
         }
-        return ref.state.value.value;
+
+        return ref.select.state.value.value;
+      },
+      clearValue: (ref: any) => {
+        ref.select.state.value = '';
       },
     });
   }, [fieldName, registerField, rest.isMulti]);
 
   return (
-    <ReactSelect
+    <Select
+      cacheOptions
       defaultValue={defaultValue}
       ref={selectRef}
       classNamePrefix="react-select"
-      styles={colourStyles}
       theme={themeProps}
       maxMenuHeight={250}
+      styles={colourStyles}
       {...rest}
     />
   );
 };
 
-export default SelectInput;
+export default AsyncSelect;

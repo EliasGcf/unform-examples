@@ -1,11 +1,14 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
-import Form from '../pages/Form';
+import ReactSelect from '../pages/ReactSelect';
+
+import Route from './Route';
 
 const Routes: React.FC = () => (
   <Switch>
-    <Route path="/" exact component={Form} />
+    <Route path="/" exact component={() => null} />
+    <Route path="/react-select" component={ReactSelect} />
   </Switch>
 );
 

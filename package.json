@@ -1,8 +1,8 @@
 {
-  "name": "unform-select",
+  "name": "unform-examples",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://eliasgcf.github.io/unform-select",
+  "homepage": "https://eliasgcf.github.io/unform-examples",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -17,6 +17,7 @@
     "gh-pages": "^3.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-phone-number-input": "^3.0.23",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-select": "^3.1.0",
@@ -44,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-phone-number-input": "^3.0.4",
     "@types/react-router-dom": "^5.1.5",
     "@types/react-select": "^3.0.13",
     "@types/styled-components": "^5.1.0",
