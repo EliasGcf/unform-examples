@@ -15,6 +15,13 @@ export const Content = styled.div`
     color: #fff;
     margin-bottom: 16px;
   }
+
+  display: flex;
+  flex-direction: column;
+
+  img {
+    margin-bottom: 32px;
+  }
 `;
 
 export const UnForm = styled(Form)`

@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-
 import { FormHandles } from '@unform/core';
-import { Container, Content, UnForm } from './styles';
+
 import SelectInput from '../../components/SelectInput';
 import AsyncSelect from '../../components/AsyncSelectInput';
 import api from '../../services/api';
+
+import unformLogo from '../../assets/logo-unform.svg';
+
+import { Container, Content, UnForm } from './styles';
 
 interface ReposOptions {
   value: string;
@@ -104,6 +107,8 @@ const Form: React.FC = () => {
   return (
     <Container>
       <Content>
+        <img src={unformLogo} alt="Logo unForm" />
+
         <h1>Select Inputs examples with Unform</h1>
 
         <UnForm ref={formRef} onSubmit={handleSubmit}>
