@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.js": "/unform-select/static/js/main.484b23c5.chunk.js",
-    "main.js.map": "/unform-select/static/js/main.484b23c5.chunk.js.map",
+    "main.js": "/unform-select/static/js/main.a08b01bd.chunk.js",
+    "main.js.map": "/unform-select/static/js/main.a08b01bd.chunk.js.map",
     "runtime-main.js": "/unform-select/static/js/runtime-main.2a7ee8ac.js",
     "runtime-main.js.map": "/unform-select/static/js/runtime-main.2a7ee8ac.js.map",
-    "static/js/2.0d67842f.chunk.js": "/unform-select/static/js/2.0d67842f.chunk.js",
-    "static/js/2.0d67842f.chunk.js.map": "/unform-select/static/js/2.0d67842f.chunk.js.map",
+    "static/js/2.07e0caa0.chunk.js": "/unform-select/static/js/2.07e0caa0.chunk.js",
+    "static/js/2.07e0caa0.chunk.js.map": "/unform-select/static/js/2.07e0caa0.chunk.js.map",
     "index.html": "/unform-select/index.html",
-    "precache-manifest.e0c8bda22331d7ef2ae0b7283e426030.js": "/unform-select/precache-manifest.e0c8bda22331d7ef2ae0b7283e426030.js",
+    "precache-manifest.ecc764efaecdafe1267477fade16113f.js": "/unform-select/precache-manifest.ecc764efaecdafe1267477fade16113f.js",
     "service-worker.js": "/unform-select/service-worker.js",
-    "static/js/2.0d67842f.chunk.js.LICENSE.txt": "/unform-select/static/js/2.0d67842f.chunk.js.LICENSE.txt"
+    "static/js/2.07e0caa0.chunk.js.LICENSE.txt": "/unform-select/static/js/2.07e0caa0.chunk.js.LICENSE.txt",
+    "static/media/logo-unform.svg": "/unform-select/static/media/logo-unform.5ab9ac7c.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.2a7ee8ac.js",
-    "static/js/2.0d67842f.chunk.js",
-    "static/js/main.484b23c5.chunk.js"
+    "static/js/2.07e0caa0.chunk.js",
+    "static/js/main.a08b01bd.chunk.js"
   ]
 }
