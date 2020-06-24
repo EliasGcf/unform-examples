@@ -61,7 +61,10 @@ const SelectInput: React.FC<Props> = ({ name, ...rest }) => {
         return ref.state.value.value;
       },
       setValue: (ref: any, value: any) => {
-        ref.select.setValue(value);
+        ref.state.value = value;
+      },
+      clearValue: (ref: any) => {
+        ref.state.value = null;
       },
     });
   }, [fieldName, registerField, rest.isMulti]);
