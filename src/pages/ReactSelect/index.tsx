@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { FormHandles } from '@unform/core';
 
-import SelectInput from '../../components/react-select/SelectInput';
-import AsyncSelect from '../../components/react-select/AsyncSelectInput';
+import { SelectInput, AsyncSelectInput } from '../../components/Form';
 import Button from '../../components/Button';
 import api from '../../services/api';
 
@@ -117,7 +116,7 @@ const ReactSelect: React.FC = () => {
         onChange={toggleOption}
         options={optionsSelect}
       />
-      <AsyncSelect
+      <AsyncSelectInput
         name="repo"
         isLoading={loading}
         defaultOptions={reposOptions}
