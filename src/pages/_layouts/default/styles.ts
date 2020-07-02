@@ -30,4 +30,8 @@ export const Form = styled(Unform)`
   width: 100%;
 
   margin-bottom: 40px;
+
+  button {
+    margin-top: 16px;
+  }
 `;

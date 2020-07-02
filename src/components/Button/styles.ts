@@ -9,7 +9,6 @@ export const ButtonContainer = styled.button`
   border: none;
   font-size: 18px;
   font-weight: 500;
-  margin-top: 16px;
 
   display: flex;
   align-items: center;

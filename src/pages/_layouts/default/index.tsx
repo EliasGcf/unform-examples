@@ -23,6 +23,7 @@ const DefaultLayout: React.FC = ({ children }) => {
 
   const inputOptions: InputOptionsData[] = [
     { value: 'react-select', label: 'React Select' },
+    { value: 'checkbox', label: 'Checkbox' },
   ];
 
   const defaultInput = inputOptions.find(
@@ -40,7 +41,7 @@ const DefaultLayout: React.FC = ({ children }) => {
     if (!input) return;
 
     window.open(
-      `https://github.com/EliasGcf/unform-examples/tree/master/src/components/${input}`,
+      `https://github.com/EliasGcf/unform-examples/tree/master/src/components/Form/${input}`,
     );
   }, []);
 

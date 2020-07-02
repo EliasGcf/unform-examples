@@ -6,7 +6,7 @@ export const UnForm = styled(Form)`
   border-radius: 10px;
   background: #3e3b47;
 
-  button {
-    margin-top: 16px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
