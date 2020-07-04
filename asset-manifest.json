@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/unform-examples/static/js/main.f2a60099.chunk.js",
-    "main.js.map": "/unform-examples/static/js/main.f2a60099.chunk.js.map",
+    "main.js": "/unform-examples/static/js/main.c9c3ae34.chunk.js",
+    "main.js.map": "/unform-examples/static/js/main.c9c3ae34.chunk.js.map",
     "runtime-main.js": "/unform-examples/static/js/runtime-main.2176bcf5.js",
     "runtime-main.js.map": "/unform-examples/static/js/runtime-main.2176bcf5.js.map",
     "static/js/2.692b2169.chunk.js": "/unform-examples/static/js/2.692b2169.chunk.js",
     "static/js/2.692b2169.chunk.js.map": "/unform-examples/static/js/2.692b2169.chunk.js.map",
     "index.html": "/unform-examples/index.html",
-    "precache-manifest.5e98de15c7a91bb69469c3ebe52c98d4.js": "/unform-examples/precache-manifest.5e98de15c7a91bb69469c3ebe52c98d4.js",
+    "precache-manifest.e8140bae97110d0f313555735c278639.js": "/unform-examples/precache-manifest.e8140bae97110d0f313555735c278639.js",
     "service-worker.js": "/unform-examples/service-worker.js",
     "static/js/2.692b2169.chunk.js.LICENSE.txt": "/unform-examples/static/js/2.692b2169.chunk.js.LICENSE.txt",
     "static/media/logo-unform.svg": "/unform-examples/static/media/logo-unform.5ab9ac7c.svg"
@@ -15,6 +15,6 @@
   "entrypoints": [
     "static/js/runtime-main.2176bcf5.js",
     "static/js/2.692b2169.chunk.js",
-    "static/js/main.f2a60099.chunk.js"
+    "static/js/main.c9c3ae34.chunk.js"
   ]
 }
