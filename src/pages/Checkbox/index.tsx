@@ -28,14 +28,11 @@ const CheckboxForm: React.FC = () => {
     if (data.profiles.length === 0) {
       return;
     }
-
-    let links = '';
-    data.profiles.forEach(profile => {
-      links += `https://github.com/${profile}\n`;
-    });
-
-    window.alert(links);
     formRef.current?.reset();
+
+    data.profiles.forEach(profile => {
+      window.open(`https://github.com/${profile}`);
+    });
   }
 
   return (
