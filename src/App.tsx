@@ -1,15 +1,15 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import Routes from './routes';
 import GlobalStyle from './styles/global';
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <GlobalStyle />
       <Routes />
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 export default App;
