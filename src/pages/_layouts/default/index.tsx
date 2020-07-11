@@ -24,6 +24,7 @@ const DefaultLayout: React.FC = ({ children }) => {
   const inputOptions: InputOptionsData[] = [
     { value: 'react-select', label: 'React Select' },
     { value: 'checkbox', label: 'Checkbox' },
+    { value: 'radio', label: 'Radio' },
   ];
 
   const defaultInput = inputOptions.find(
