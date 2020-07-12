@@ -1,8 +1,8 @@
-// https://codesandbox.io/embed/unform-web-radio-example-er0cn?autoresize=1&expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark
 import React, { useRef } from 'react';
-import { FormHandles } from '@unform/core';
+import { FormHandles, FormHelpers } from '@unform/core';
 
 import { RadioInput } from '../../components/Form';
+import Button from '../../components/Button';
 
 import { UnForm } from './styles';
 
@@ -10,6 +10,10 @@ interface RadioOption {
   id: string;
   value: string;
   label: string;
+}
+
+interface FormData {
+  user: string;
 }
 
 const Radio: React.FC = () => {
@@ -20,8 +24,11 @@ const Radio: React.FC = () => {
     { id: 'eliasgcf', value: 'eliasgcf', label: 'EliasGcf' },
   ];
 
-  function handleSubmit(data: any) {
-    console.log(data);
+  function handleSubmit(data: FormData, { reset }: FormHelpers) {
+    if (!data.user) return;
+
+    window.open(`https://github.com/${data.user}`);
+    reset();
   }
 
   return (
@@ -30,8 +37,11 @@ const Radio: React.FC = () => {
       initialData={{ radio: radioOptions[1].id }}
       onSubmit={handleSubmit}
     >
-      <RadioInput name="radio" options={radioOptions} />
-      <button type="submit">Open</button>
+      <RadioInput name="user" options={radioOptions} />
+
+      <Button style={{ width: 100 }} type="submit">
+        Open
+      </Button>
     </UnForm>
   );
 };
