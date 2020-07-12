@@ -3,8 +3,8 @@ import { useHistory, useLocation } from 'react-router-dom';
 
 import unformLogo from '../../../assets/logo-unform.svg';
 
-import { SelectInput } from '../../../components/Form';
 import Button from '../../../components/Button';
+import { SelectInput } from '../../../components/Form';
 
 import { Container, Wrapper, Form } from './styles';
 

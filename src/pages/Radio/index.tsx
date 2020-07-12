@@ -1,7 +1,7 @@
 // https://codesandbox.io/embed/unform-web-radio-example-er0cn?autoresize=1&expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark
 import React, { useRef } from 'react';
-
 import { FormHandles } from '@unform/core';
+
 import { RadioInput } from '../../components/Form';
 
 import { UnForm } from './styles';

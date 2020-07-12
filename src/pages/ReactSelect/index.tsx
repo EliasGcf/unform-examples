@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { FormHandles } from '@unform/core';
 
+import api from '../../services/api';
+
 import { SelectInput, AsyncSelectInput } from '../../components/Form';
 import Button from '../../components/Button';
-import api from '../../services/api';
 
 import { UnForm } from './styles';
 
