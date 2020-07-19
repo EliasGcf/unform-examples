@@ -39,6 +39,7 @@ Available examples:
 - [React Select](https://react-select.com/home)
 - [Checkbox](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox)
 - [Radio](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio)
+- [TextArea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
 
 ## 🚀 Technologies
 
