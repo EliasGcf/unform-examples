@@ -37,6 +37,7 @@ I made this project to help other devs when using Unform to make amazing forms.
 Available examples:
 
 - [React Select](https://react-select.com/home)
+- [React Dropzone](https://react-dropzone.js.org/)
 - [Checkbox](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox)
 - [Radio](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio)
 - [TextArea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
