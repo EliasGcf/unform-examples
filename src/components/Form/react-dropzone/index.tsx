@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useField } from '@unform/core';
 
@@ -13,21 +13,17 @@ interface InputRefProps extends HTMLInputElement {
 }
 
 const ReactDropzoneInput: React.FC<Props> = ({ name }) => {
-  const { fieldName, registerField } = useField(name);
+  const inputRef = useRef<InputRefProps>(null);
+  const { fieldName, registerField, defaultValue = [] } = useField(name);
 
-  const {
-    getRootProps,
-    getInputProps,
-    isDragActive,
-    acceptedFiles,
-    inputRef,
-  } = useDropzone({
+  const [acceptedFiles, setAcceptedFiles] = useState<File[]>(defaultValue);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
     accept: 'image/*',
     onDrop: onDropAcceptedFiles => {
-      const onDropInputRef = inputRef as { current: InputRefProps };
-
-      if (onDropInputRef.current) {
-        onDropInputRef.current.acceptedFiles = onDropAcceptedFiles;
+      if (inputRef.current) {
+        inputRef.current.acceptedFiles = onDropAcceptedFiles;
+        setAcceptedFiles(onDropAcceptedFiles);
       }
     },
   });
@@ -41,16 +37,18 @@ const ReactDropzoneInput: React.FC<Props> = ({ name }) => {
       },
       clearValue: (ref: InputRefProps) => {
         ref.acceptedFiles = [];
+        setAcceptedFiles([]);
       },
       setValue: (ref: InputRefProps, value) => {
         ref.acceptedFiles = value;
+        setAcceptedFiles(value);
       },
     });
-  }, [fieldName, registerField, inputRef]);
+  }, [fieldName, registerField]);
 
   return (
-    <Container {...getRootProps()}>
-      <input {...getInputProps()} />
+    <Container {...getRootProps()} onClick={() => inputRef.current?.click()}>
+      <input {...getInputProps()} accept="image/*" ref={inputRef} />
       {acceptedFiles.length !== 0 && (
         <ul>
           {acceptedFiles.map(file => (

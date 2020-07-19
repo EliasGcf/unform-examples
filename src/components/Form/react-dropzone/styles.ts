@@ -6,6 +6,8 @@ export const Container = styled.div`
   padding: 24px 16px;
   border-radius: 10px;
 
+  cursor: pointer;
+
   ul {
     li {
       margin-left: 8px;

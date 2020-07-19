@@ -21,6 +21,7 @@ const ReactDropzone: React.FC = () => {
     // urls.forEach(url => {
     //   window.open(url);
     // });
+    formRef.current?.reset();
     alert(urls);
   }
 
