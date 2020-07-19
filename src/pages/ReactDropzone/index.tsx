@@ -18,9 +18,10 @@ const ReactDropzone: React.FC = () => {
 
     const urls = data.images.map(image => URL.createObjectURL(image));
 
-    urls.forEach(url => {
-      window.open(url);
-    });
+    // urls.forEach(url => {
+    //   window.open(url);
+    // });
+    alert(urls);
   }
 
   return (
