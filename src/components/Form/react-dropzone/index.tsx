@@ -1,11 +1,15 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useField } from '@unform/core';
 
-// import {  } from './styles';
+import { Container } from './styles';
 
 interface Props {
   name: string;
+}
+
+interface InputRefProps extends HTMLInputElement {
+  acceptedFiles: File[];
 }
 
 const ReactDropzoneInput: React.FC<Props> = ({ name }) => {
@@ -16,29 +20,50 @@ const ReactDropzoneInput: React.FC<Props> = ({ name }) => {
     getInputProps,
     isDragActive,
     acceptedFiles,
+    inputRef,
   } = useDropzone({
     accept: 'image/*',
+    onDrop: onDropAcceptedFiles => {
+      const onDropInputRef = inputRef as { current: InputRefProps };
+
+      if (onDropInputRef.current) {
+        onDropInputRef.current.acceptedFiles = onDropAcceptedFiles;
+      }
+    },
   });
 
   useEffect(() => {
-    console.log('useEffect');
     registerField({
       name: fieldName,
-      getValue: () => {
-        return acceptedFiles;
+      ref: inputRef.current,
+      getValue: (ref: InputRefProps) => {
+        return ref.acceptedFiles || [];
+      },
+      clearValue: (ref: InputRefProps) => {
+        ref.acceptedFiles = [];
+      },
+      setValue: (ref: InputRefProps, value) => {
+        ref.acceptedFiles = value;
       },
     });
-  }, [fieldName, registerField, acceptedFiles]);
+  }, [fieldName, registerField, inputRef]);
 
   return (
-    <div {...getRootProps()}>
-      <input {...getInputProps()} accept="image/*" />
+    <Container {...getRootProps()}>
+      <input {...getInputProps()} />
+      {acceptedFiles.length !== 0 && (
+        <ul>
+          {acceptedFiles.map(file => (
+            <li key={file.name}>{`${file.name} - ${file.size} bytes`}</li>
+          ))}
+        </ul>
+      )}
       {isDragActive ? (
         <p>Drop the files here ...</p>
       ) : (
         <p>Drag drop some files here, or click to select files</p>
       )}
-    </div>
+    </Container>
   );
 };
 

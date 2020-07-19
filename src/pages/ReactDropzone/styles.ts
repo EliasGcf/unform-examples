@@ -5,4 +5,8 @@ export const UnForm = styled(Form)`
   padding: 24px;
   border-radius: 10px;
   background: #3e3b47;
+
+  button {
+    margin-top: 16px;
+  }
 `;
