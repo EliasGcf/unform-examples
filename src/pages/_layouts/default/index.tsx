@@ -27,6 +27,7 @@ const DefaultLayout: React.FC = ({ children }) => {
     { value: 'radio', label: 'Radio' },
     { value: 'react-dropzone', label: 'React Dropzone' },
     { value: 'textarea', label: 'TextArea' },
+    { value: 'react-phone-number-input', label: 'React Phone Number' },
   ];
 
   const defaultInput = inputOptions.find(
