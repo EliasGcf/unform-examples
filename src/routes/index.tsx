@@ -6,7 +6,7 @@ import Checkbox from '../pages/Checkbox';
 import Radio from '../pages/Radio';
 import ReactDropzone from '../pages/ReactDropzone';
 import TextArea from '../pages/TextArea';
-
+import ReactPhoneNumberInput from '../pages/ReactPhoneNumberInput';
 
 import Route from './Route';
 
@@ -18,6 +18,7 @@ const Routes: React.FC = () => (
     <Route path="/radio" component={Radio} />
     <Route path="/react-dropzone" component={ReactDropzone} />
     <Route path="/textarea" component={TextArea} />
+    <Route path="/react-phone-number-input" component={ReactPhoneNumberInput} />
   </Switch>
 );
 

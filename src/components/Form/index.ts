@@ -4,4 +4,4 @@ export { default as CheckboxInput } from './checkbox';
 export { default as RadioInput } from './radio';
 export { default as DropzoneInput } from './react-dropzone';
 export { default as TextAreaInput } from './textarea';
-
+export { default as PhoneNumberInput } from './react-phone-number-input';

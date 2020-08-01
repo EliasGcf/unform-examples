@@ -7024,10 +7024,10 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-libphonenumber-js@^1.7.52:
-  version "1.7.53"
-  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.7.53.tgz#d62b9bc8bbf14dbdf25b80f0fc11cb1c53f37bfe"
-  integrity sha512-uqx2a71Uq1zVCyklE69a/Jm49tumUgKD7YD9cPtyWewMELxBW/uz6NZsWnYNqN7hjjUbDYxwhD4v3u+Y+f/dRw==
+libphonenumber-js@^1.7.55:
+  version "1.7.55"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.7.55.tgz#c42e1e70daccf7e7a329891964de79c80b1a7799"
+  integrity sha512-vYT83akP6uJq5QiMgzzVsWrGWJpQ4KgX2SmW0RBgLFD1UzICjVgp+7ajEep3oRcv2838kMTu1gj7KHPi0Y6Y6w==
   dependencies:
     minimist "^1.2.5"
     xml2js "^0.4.17"
@@ -9296,15 +9296,15 @@ react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-i
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-phone-number-input@^3.0.23:
-  version "3.0.23"
-  resolved "https://registry.yarnpkg.com/react-phone-number-input/-/react-phone-number-input-3.0.23.tgz#3cf66e54a6bd414e24f42742936172f0d1daf3f6"
-  integrity sha512-dYHC8jwoCMKDhLPl30z7U3btqlef8stf20vu/5ognJ4gF1i8Uu2lJKAdjomvCWKTUT9ZsNvOz0+IP92k2LCONQ==
+react-phone-number-input@^3.0.25:
+  version "3.0.25"
+  resolved "https://registry.yarnpkg.com/react-phone-number-input/-/react-phone-number-input-3.0.25.tgz#e3072675d988b64d75b7543fbb7f75a3167d6df8"
+  integrity sha512-ThMgThKf4UIIFlDuaLaEmymCEY726PCqsoXqA+0+9ktoM0CusP/OLcjpIvAm2XkUCdPSRWOeQZFHiDLp6ullCA==
   dependencies:
     classnames "^2.2.5"
     country-flag-icons "^1.0.2"
     input-format "^0.3.0"
-    libphonenumber-js "^1.7.52"
+    libphonenumber-js "^1.7.55"
     prop-types "^15.7.2"
 
 react-router-dom@^5.2.0:
