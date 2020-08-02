@@ -38,6 +38,7 @@ Available examples:
 
 - [React Select](https://react-select.com/home)
 - [React Dropzone](https://react-dropzone.js.org/)
+- [React Phone Number Input](https://www.npmjs.com/package/react-phone-number-input)
 - [Checkbox](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox)
 - [Radio](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio)
 - [TextArea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
