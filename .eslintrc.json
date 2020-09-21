@@ -30,6 +30,7 @@
     "react/jsx-props-no-spreading": "off",
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
+    "no-return-assign": "off",
     "camelcase": "off",
     "no-param-reassign": "off",
     "no-unused-expressions": "off",
