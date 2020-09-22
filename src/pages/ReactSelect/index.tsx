@@ -57,7 +57,7 @@ const ReactSelect: React.FC = () => {
   );
 
   const handleRepositoryChange = useCallback(data => {
-    setRepositorySelected(data.value);
+    setRepositorySelected(data?.value);
   }, []);
 
   const handleLoadPage = useCallback(async () => {
@@ -113,7 +113,7 @@ const ReactSelect: React.FC = () => {
     <UnForm ref={formRef} onSubmit={handleSubmit}>
       <SelectInput
         name="name"
-        defaultValue={{ value: 'repos', label: 'Owner' }}
+        defaultValue={optionsSelect[0]}
         onChange={toggleOption}
         options={optionsSelect}
       />
