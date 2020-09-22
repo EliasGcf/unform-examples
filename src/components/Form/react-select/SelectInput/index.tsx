@@ -7,6 +7,11 @@ import ReactSelect, {
 } from 'react-select';
 import { useField } from '@unform/core';
 
+export interface Option {
+  value: string;
+  label: string;
+}
+
 interface Props extends SelectProps<OptionTypeBase> {
   name: string;
 }
@@ -53,15 +58,15 @@ const SelectInput: React.FC<Props> = ({ name, ...rest }) => {
           if (!ref.state.value) {
             return [];
           }
-          return ref.state.value.map((option: OptionTypeBase) => option.value);
+          return ref.state.value.map((option: Option) => option.value);
         }
         if (!ref.state.value) {
           return '';
         }
         return ref.state.value.value;
       },
-      setValue: (ref: ReactSelect, value: any) => {
-        ref.select.setValue(value, 'set-value');
+      setValue: (ref: ReactSelect, value: Option) => {
+        ref.select.selectOption(value);
       },
       clearValue: (ref: ReactSelect) => {
         ref.select.clearValue();

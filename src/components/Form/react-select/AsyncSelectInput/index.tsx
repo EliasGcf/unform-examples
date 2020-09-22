@@ -3,6 +3,11 @@ import { OptionTypeBase, StylesConfig, Theme } from 'react-select';
 import Select, { Props as AsyncProps } from 'react-select/async';
 import { useField } from '@unform/core';
 
+export interface Option {
+  value: string;
+  label: string;
+}
+
 interface Props extends AsyncProps<OptionTypeBase> {
   name: string;
 }
@@ -51,9 +56,7 @@ const AsyncSelect: React.FC<Props> = ({ name, ...rest }) => {
             return [];
           }
 
-          return ref.select.state.value.map(
-            (option: OptionTypeBase) => option.value,
-          );
+          return ref.select.state.value.map((option: Option) => option.value);
         }
         if (!ref.select.state.value) {
           return '';
@@ -61,8 +64,8 @@ const AsyncSelect: React.FC<Props> = ({ name, ...rest }) => {
 
         return ref.select.state.value.value;
       },
-      setValue: (ref: any, value: any) => {
-        ref.select.select.setValue(value, 'set-value');
+      setValue: (ref: any, value: Option) => {
+        ref.select.select.selectOption(value);
       },
       clearValue: (ref: any) => {
         ref.select.select.clearValue();
