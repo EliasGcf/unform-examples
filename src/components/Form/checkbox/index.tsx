@@ -14,7 +14,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 
 const CheckboxInput: React.FC<Props> = ({ name, options, ...rest }) => {
   const inputRefs = useRef<HTMLInputElement[]>([]);
-  const { fieldName, registerField, defaultValue } = useField(name);
+  const { fieldName, registerField, defaultValue = [] } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -36,14 +36,14 @@ const CheckboxInput: React.FC<Props> = ({ name, options, ...rest }) => {
         });
       },
     });
-  }, [defaultValue, fieldName, registerField]);
+  }, [fieldName, registerField]);
 
   return (
     <>
       {options.map((option, index) => (
         <Label htmlFor={option.id} key={option.id}>
           <input
-            defaultChecked={(defaultValue as string[])?.includes(option.id)}
+            defaultChecked={defaultValue.includes(option.id)}
             ref={ref => ref && (inputRefs.current[index] = ref)}
             value={option.value}
             type="checkbox"
