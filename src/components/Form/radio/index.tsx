@@ -3,48 +3,53 @@ import { useField } from '@unform/core';
 
 import { Label } from './styles';
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  name: string;
-  options: {
-    id: string;
-    value: string;
-    label: string;
-  }[];
+export interface RadioOption {
+  value: string;
+  label: string;
 }
 
-const RadioInput: React.FC<Props> = ({ name, options, ...rest }) => {
+interface RadioInputProps
+  extends Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'type' | 'defaultChecked' | 'value' | 'defaultValue'
+  > {
+  name: string;
+  options: RadioOption[];
+}
+
+const RadioInput: React.FC<RadioInputProps> = ({ name, options, ...rest }) => {
   const inputRefs = useRef<HTMLInputElement[]>([]);
   const { fieldName, registerField, defaultValue = '' } = useField(name);
 
   useEffect(() => {
-    registerField({
+    registerField<string>({
       name: fieldName,
       ref: inputRefs.current,
       getValue: (refs: HTMLInputElement[]) => {
         return refs.find(ref => ref.checked)?.value || '';
       },
-      setValue: (refs: HTMLInputElement[], id: string) => {
-        const inputRef = refs.find(ref => ref.id === id);
+      setValue: (refs: HTMLInputElement[], value) => {
+        const inputRef = refs.find(ref => ref.value === value);
         if (inputRef) inputRef.checked = true;
       },
       clearValue: (refs: HTMLInputElement[]) => {
-        const inputRef = refs.find(ref => ref.checked === true);
+        const inputRef = refs.find(ref => ref.checked);
         if (inputRef) inputRef.checked = false;
       },
     });
-  }, [defaultValue, fieldName, registerField]);
+  }, [fieldName, registerField]);
 
   return (
     <>
-      {options.map(option => (
-        <Label htmlFor={option.id} key={option.id}>
+      {options.map((option, index) => (
+        <Label htmlFor={option.value} key={option.value}>
           <input
-            ref={ref => inputRefs.current.push(ref as HTMLInputElement)}
-            id={option.id}
-            type="radio"
-            name={name}
-            defaultChecked={defaultValue.includes(option.id)}
+            ref={ref => ref && (inputRefs.current[index] = ref)}
+            defaultChecked={defaultValue === option.value}
             value={option.value}
+            id={option.value}
+            name={name}
+            type="radio"
             {...rest}
           />
           {option.label}
