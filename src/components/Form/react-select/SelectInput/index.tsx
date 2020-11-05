@@ -12,11 +12,11 @@ export interface Option {
   label: string;
 }
 
-interface Props extends SelectProps<OptionTypeBase> {
+interface SelectInputProps extends SelectProps<OptionTypeBase> {
   name: string;
 }
 
-const SelectInput: React.FC<Props> = ({ name, ...rest }) => {
+const SelectInput: React.FC<SelectInputProps> = ({ name, ...rest }) => {
   const selectRef = useRef(null);
   const { fieldName, defaultValue, registerField } = useField(name);
 
@@ -53,20 +53,19 @@ const SelectInput: React.FC<Props> = ({ name, ...rest }) => {
     registerField({
       name: fieldName,
       ref: selectRef.current,
-      getValue: (ref: any) => {
+      getValue: ref => {
         if (rest.isMulti) {
-          if (!ref.state.value) {
-            return [];
-          }
+          if (!ref.state.value) return [];
+
           return ref.state.value.map((option: Option) => option.value);
         }
-        if (!ref.state.value) {
-          return '';
-        }
+
+        if (!ref.state.value) return '';
+
         return ref.state.value.value;
       },
-      setValue: (ref: ReactSelect, value: Option) => {
-        ref.select.selectOption(value);
+      setValue: (ref: ReactSelect, value: Option | Option[]) => {
+        ref.select.setValue(value, 'select-option');
       },
       clearValue: (ref: ReactSelect) => {
         ref.select.clearValue();
